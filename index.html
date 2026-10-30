@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple and productive task management application.">
+
+    <title>My Todo App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="todo-container">
+
+        <header class="todo-header">
+            <div class="header-icon">✓</div>
+            <h1>My Tasks</h1>
+            <p>Organize your day, one task at a time.</p>
+        </header>
+
+        <!-- Add Task Form -->
+        <form id="task-form" class="task-form">
+
+            <input
+                type="text"
+                id="task-input"
+                placeholder="What needs to be done?"
+                maxlength="150"
+                autocomplete="off"
+                aria-label="Enter a new task"
+            >
+
+            <button type="submit" class="add-btn">
+                <span>+</span> Add Task
+            </button>
+
+        </form>
+
+        <!-- Task Statistics -->
+        <section class="stats" aria-label="Task statistics">
+
+            <div class="stat-card">
+                <span id="total-count">0</span>
+                <p>Total</p>
+            </div>
+
+            <div class="stat-card">
+                <span id="active-count">0</span>
+                <p>Active</p>
+            </div>
+
+            <div class="stat-card">
+                <span id="completed-count">0</span>
+                <p>Completed</p>
+            </div>
+
+        </section>
+
+        <!-- Filters -->
+        <section class="task-section">
+
+            <div class="section-heading">
+                <h2>Your Tasks</h2>
+
+                <button id="clear-completed" class="clear-btn" type="button">
+                    Clear completed
+                </button>
+            </div>
+
+            <nav class="filter-buttons" aria-label="Filter tasks">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all"
+                    type="button"
+                    aria-pressed="true">
+                    All
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="active"
+                    type="button"
+                    aria-pressed="false">
+                    Active
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="completed"
+                    type="button"
+                    aria-pressed="false">
+                    Completed
+                </button>
+
+            </nav>
+
+            <!-- Task List -->
+            <ul id="task-list" class="task-list"></ul>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state">
+                <div class="empty-icon">📝</div>
+                <h3>No tasks yet!</h3>
+                <p>Add your first task and get productive.</p>
+            </div>
+
+        </section>
+
+        <footer class="todo-footer">
+            <p>Stay focused. Stay productive. 🚀</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

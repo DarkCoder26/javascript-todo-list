@@ -1,0 +1,418 @@
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #e0eafc,
+        #cfdef3
+    );
+
+    color: #1e293b;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.todo-container {
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+
+    background-color: #ffffff;
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.todo-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #4f46e5;
+    color: white;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    border-radius: 15px;
+}
+
+.todo-header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: #1e293b;
+}
+
+.todo-header p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* =========================
+   INPUT FORM
+========================= */
+
+.task-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 15px;
+
+    border: 1px solid #dbe1ea;
+    border-radius: 9px;
+
+    outline: none;
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+#task-input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.add-btn {
+    padding: 12px 17px;
+
+    background-color: #4f46e5;
+    color: white;
+
+    border: none;
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn span {
+    font-size: 18px;
+}
+
+.add-btn:hover {
+    background-color: #3730a3;
+}
+
+/* =========================
+   STATISTICS
+========================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    padding: 15px 8px;
+
+    text-align: center;
+
+    background-color: #f8fafc;
+    border: 1px solid #edf0f5;
+    border-radius: 10px;
+}
+
+.stat-card span {
+    display: block;
+    margin-bottom: 5px;
+
+    color: #4f46e5;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stat-card p {
+    color: #64748b;
+    font-size: 12px;
+}
+
+/* =========================
+   TASK SECTION
+========================= */
+
+.task-section {
+    width: 100%;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    font-size: 19px;
+    color: #1e293b;
+}
+
+.clear-btn {
+    padding: 7px 10px;
+
+    background: none;
+    border: none;
+
+    color: #ef4444;
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+
+    background-color: #f1f5f9;
+    color: #64748b;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 13px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #e0e7ff;
+    color: #4338ca;
+}
+
+.filter-btn.active {
+    background-color: #4f46e5;
+    color: white;
+}
+
+/* =========================
+   TASK ITEMS
+========================= */
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px;
+    margin-bottom: 10px;
+
+    background-color: #f8fafc;
+    border: 1px solid #edf0f5;
+    border-radius: 9px;
+
+    transition: 0.3s;
+}
+
+.task-item:hover {
+    border-color: #c7d2fe;
+    transform: translateY(-2px);
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+
+    cursor: pointer;
+    accent-color: #4f46e5;
+}
+
+.task-text {
+    flex: 1;
+    min-width: 0;
+
+    color: #334155;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.task-item.completed .task-text {
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.delete-btn {
+    padding: 7px 10px;
+
+    background-color: #fee2e2;
+    color: #dc2626;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #fecaca;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.empty-icon {
+    margin-bottom: 12px;
+    font-size: 40px;
+}
+
+.empty-state h3 {
+    margin-bottom: 7px;
+    color: #334155;
+    font-size: 17px;
+}
+
+.empty-state p {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.todo-footer {
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid #edf0f5;
+
+    text-align: center;
+}
+
+.todo-footer p {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px 10px;
+        align-items: flex-start;
+    }
+
+    .todo-container {
+        padding: 20px 15px;
+        margin-top: 20px;
+    }
+
+    .todo-header h1 {
+        font-size: 25px;
+    }
+
+    .task-form {
+        gap: 7px;
+    }
+
+    #task-input {
+        padding: 11px;
+        font-size: 13px;
+    }
+
+    .add-btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+
+    .stat-card {
+        padding: 12px 5px;
+    }
+
+    .filter-buttons {
+        gap: 5px;
+    }
+
+    .filter-btn {
+        flex: 1;
+        padding: 9px 5px;
+        font-size: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
+    }
+}
